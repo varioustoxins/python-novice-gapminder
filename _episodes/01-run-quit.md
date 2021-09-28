@@ -5,20 +5,12 @@ exercises: 0
 questions:
 - "How can I run Python programs?"
 objectives:
-- "Launch the JupyterLab server." 
-- "Create a new Python script." 
 - "Create a Jupyter notebook."
-- "Shutdown the JupyterLab server."
-- "Understand the difference between a Python script and a Jupyter notebook."
 - "Create Markdown cells in a notebook."
 - "Create and run Python cells in a notebook."
 keypoints:
-- "Python scripts are plain text files."
-- "Use the Jupyter Notebook for editing and running Python."
-- "The Notebook has Command and Edit modes."
 - "Use the keyboard and mouse to select and edit cells."
 - "The Notebook will turn Markdown into pretty-printed documentation."
-- "Markdown does most of what HTML does."
 ---
 
 Many software developers will often use an integrated development environment (IDE) or a 
@@ -35,18 +27,12 @@ This has several advantages:
 
 Each notebook contains one or more cells that contain code, text, or images.
 
-## Getting Started with JupyterLab
+## Getting Started with JupyterNotebooks
 
 JupyterLab is an application with a web-based user interface from [Project Jupyter][jupyter] that 
-enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner. JupyterLab requires a
-reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox); Internet
-Explorer versions 9 and below are *not* supported.
-
-JupyterLab is included as part of the Anaconda Python distribution. If you have not already
-installed the Anaconda Python distribution, see [the setup instructions]({{ page.root }}{% link
-setup.md %})
-for installation instructions.
+enables one to work with documents and activities such as Jupyter notebooks
+in a flexible, integrated, and extensible manner. JupyterLab requires a
+reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox)
 
 Even though JupyterLab is a web-based application, JupyterLab runs locally on your machine and 
 does not require an internet connection.
@@ -55,68 +41,9 @@ does not require an internet connection.
 *   You will type code into the browser and see the result when the web page talks to the 
     JupyterLab server.
 
-> ## JupyterLab? What about Jupyter notebooks?
-> 
-> JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
-> If you have prior experience working with Jupyter notebooks, then you will have a a good idea of what to expect from JupyterLab. 
-> 
-> Experienced users of Jupyter notebooks interested in a more detailed discussion of the similarities and differences
-> between the JupyterLab and Jupyter notebook user interfaces can find more information in the 
-> [JupyterLab user interface documentation][jupyterlab-ui].
-{: .callout}
-
 ## Starting JupyterLab
 
-You can start the JupyterLab server through the command line or through an application called 
-`Anaconda Navigator`. Anaconda Navigator is included as part of the Anaconda Python distribution.
-
-### macOS - Command Line
-To start the JupyterLab server you will need to access the command line through the Terminal. 
-There are two ways to open Terminal on Mac.
-
-1. In your Applications folder, open Utilities and double-click on Terminal
-2. Press <kbd>Command</kbd> + <kbd>spacebar</kbd> to launch Spotlight. Type `Terminal` and then 
-double-click the search result or hit <kbd>Enter</kbd>
-
-After you have launched Terminal, type the command to launch the JupyterLab server.
-
-~~~
-$ jupyter lab
-~~~
-{: .bash}
-
-### Windows Users - Command Line
-To start the JupyterLab server you will need to access the Anaconda Prompt.
-
-Press <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
-
-After you have launched the Anaconda Prompt, type the command:
-
-~~~
-$ jupyter lab
-~~~
-{: .bash}
-
-###  Anaconda Navigator
-
-To start a JupyterLab server from Anaconda Navigator you must first [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/anaconda/navigator/getting-started/#starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and executing the `anaconda-navigator` executable from the command line.
-
-After you have launched Anaconda Navigator, click the `Launch` button under JupyterLab. You may need
-to scroll down to find it.
-
-Here is a screenshot of an Anaconda Navigator page similar to the one that should open on either macOS
-or Windows.
-
-<p align='center'>
-  <img alt="Anaconda Navigator landing page" src="../fig/0_anaconda_navigator_landing_page.png" width="750"/>
-</p>
-
-And here is a screenshot of a JupyterLab landing page that should be similar to the one that opens in your 
-default web browser after starting the JupyterLab server on either macOS or Windows.
-
-<p align='center'>
-  <img alt="JupyterLab landing page" src="../fig/0_jupyterlab_landing_page.png" width="750"/>
-</p>
+You can start the JupyterLab server through cocalc, or on the command line or from an icon on your computer.
 
 ## The JupyterLab Interface
 
@@ -131,70 +58,17 @@ of documents and activities.
 
 The Menu Bar at the top of JupyterLab has the top-level menus that expose various actions 
 available in JupyterLab along with their keyboard shortcuts (where applicable). The following 
-menus are included by default.
+menus are the most important.
 
 *   **File:** Actions related to files and directories such as *New*, *Open*, *Close*, *Save*, etc. The *File* menu also includes the *Shut Down* action used to shutdown the JupyterLab server.
 *   **Edit:** Actions related to editing documents and other activities such as *Undo*, *Cut*, *Copy*, *Paste*, etc.
-*   **View:** Actions that alter the appearance of JupyterLab.
-*   **Run:** Actions for running code in different activities such as notebooks and code consoles (discussed below).
-*   **Kernel:** Actions for managing kernels. Kernels in Jupyter will be explained in more detail below.
-*   **Tabs:** A list of the open documents and activities in the main work area.
-*   **Settings:** Common JupyterLab settings can be configured using this menu. There is also an *Advanced Settings Editor* option in the dropdown menu that provides more fine-grained control of JupyterLab settings and configuration options.
 *   **Help:** A list of JupyterLab and kernel help links.
-
-> ## Kernels
-> The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) 
-> define kernels as "separate processes started by the server that run your code in different programming languages and environments."
-> When we open a Jupyter Notebook, that starts a kernel - a process - that is going to run the code. 
-> In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
-> 
-> Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us 
-> write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia, Ruby, JavaScript, Fortran, 
-> etc.
-> 
-{: .callout}
 
 A screenshot of the default Menu Bar is provided below.
 
 <p align='center'>
     <img alt="JupyterLab Menu Bar" src="../fig/0_jupyterlab_menu_bar.png" width="750"/>
 </p>
-
-### Left Sidebar
-
-The left sidebar contains a number of commonly used tabs, such as a file browser (showing the 
-contents of the directory where the JupyterLab server was launched), a list of running kernels 
-and terminals, the command palette, and a list of open tabs in the main work area. A screenshot of 
-the default Left Side Bar is provided below.
-
-<p align='center'>
-    <img alt="JupyterLab Left Side Bar" src="../fig/0_jupyterlab_left_side_bar.png" width="250"/>
-</p>
-
-The left sidebar can be collapsed or expanded by selecting “Show Left Sidebar” in the View menu or 
-by clicking on the active sidebar tab.
-
-### Main Work Area
-
-The main work area in JupyterLab enables you to arrange documents (notebooks, text files, etc.) 
-and other activities (terminals, code consoles, etc.) into panels of tabs that can be resized or 
-subdivided. A screenshot of the default Main Work Area is provided below.
-
-<p align='center'>
-    <img alt="JupyterLab Main Work Area" src="../fig/0_jupyterlab_main_work_area.png" width="750"/>
-</p>
-
-Drag a tab to the center of a tab panel to move the tab to the panel. Subdivide a tab panel by 
-dragging a tab to the left, right, top, or bottom of the panel. The work area has a single current 
-activity. The tab for the current activity is marked with a colored top border (blue by default).
-
-## Creating a Python script
-
-*   To start writing a new Python program click the Text File icon under the *Other* header in the Launcher tab of the Main Work Area.
-    *   You can also create a new plain text file by selecting the *New -> Text File* from the *File* menu in the Menu Bar.
-*   To convert this plain text file to a Python program, select the *Save File As* action from the *File* menu in the Menu Bar and give your new text file a name that ends with the `.py` extension.
-    *   The `.py` extension lets everyone (including the operating system) know that this text file is a Python program.
-    *   This is convention, not a requirement.
 
 ## Creating a Jupyter Notebook
 
@@ -219,29 +93,6 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
 > *   Just like a webpage, what's saved looks different from what you see in your browser.
 > *   But this format allows Jupyter to mix source code, text, and images, all in one file.
 {: .callout}
-
-> ## Arranging Documents into Panels of Tabs
->
-> In the JupyterLab Main Work Area you can arrange documents into panels of tabs. Here is an 
-> example from the [official documentation][jupyterlab].
-> 
-> <p align='center'>
->    <img alt="Multi-panel JupyterLab" src="../fig/0_multipanel_jupyterlab_screenshot.png" width="750"/>
-> </p>
->
-> First, create a text file, Python console, and terminal window and arrange them into three 
-> panels in the main work area. Next, create a notebook, terminal window, and text file and 
-> arrange them into three panels in the main work area. Finally, create your own combination of 
-> panels and tabs. What combination of panels and tabs do you think will be most useful for your 
-> workflow?
->
-> > ## Solution
-> >
-> > After creating the necessary tabs, you can drag one of the tabs to the center of a panel to 
-> > move the tab to the panel; next you can subdivide a tab panel by dragging a tab to the left, 
-> > right, top, or bottom of the panel.
-> {: .solution}
-{: .challenge}
 
 > ## Code vs. Text
 >
@@ -306,7 +157,7 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
 *   Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and 
     press the <kbd>y</kbd> key.
 
-### Markdown does most of what HTML does.
+### Markdown does most of what HTML does an example bullet lists.
 
 <div class="row">
   <div class="col-md-6" markdown="1">
